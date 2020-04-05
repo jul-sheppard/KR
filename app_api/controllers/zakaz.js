@@ -1,5 +1,5 @@
 let mongoose = require('mongoose');
-let posecheniya = mongoose.model('posecheniya');
+let zakaz = mongoose.model('zakaz');
 let token = mongoose.model('token');
 const h = require('../helpers/common');
 
@@ -10,11 +10,11 @@ module.exports.getAll = async (req, res, next) => {
         return;
     }
 
-    posecheniya.find({}, (err, posecheniya) => {
+    zakaz.find({}, (err, zakaz) => {
         if(err){
             h.sendJsonResponse(res,400, err);
         }
-        h.sendJsonResponse(res,200, posecheniya);
+        h.sendJsonResponse(res,200, zakaz);
     });
 };
 
@@ -25,11 +25,11 @@ module.exports.getOne = async (req, res, next) => {
         return;
     }
 
-    posecheniya.findById(req.params.id, (err, posecheniya) => {
+    zakaz.findById(req.params.id, (err, zakaz) => {
         if(err){
             h.sendJsonResponse(res,400, err);
         }
-        h.sendJsonResponse(res,200, posecheniya);
+        h.sendJsonResponse(res,200, zakaz);
     });
 };
 
@@ -41,11 +41,11 @@ module.exports.create = async (req, res, next) => {
     }
 
 
-    posecheniya.create(req.body, (err, posecheniya) => {
+    zakaz.create(req.body, (err, zakaz) => {
         if(err){
             h.sendJsonResponse(res,400, err);
         }
-        h.sendJsonResponse(res,201, posecheniya);
+        h.sendJsonResponse(res,201, zakaz);
     });
 };
 
@@ -56,32 +56,32 @@ module.exports.update = async (req, res, next) => {
         return;
     }
 
-    posecheniya.findById(req.params.id, (err, posecheniya) => {
+    zakaz.findById(req.params.id, (err, zakaz) => {
         if(err){
             h.sendJsonResponse(res,400, err);
         }
 
         if(req.body.fio){
-            posecheniya.fio = req.body.fio;
+            zakaz.fio = req.body.fio;
         }
         if(req.body.adress){
-            posecheniya.adress = req.body.adress;
+            zakaz.adress = req.body.adress;
         }
         if(req.body.dostavshik){
-            posecheniya.dostavshik = req.body.dostavshik;
+            zakaz.dostavshik = req.body.dostavshik;
         }
         if(req.body.tel){
-            posecheniya.tel = req.body.tel;
+            zakaz.tel = req.body.tel;
         }
         if(req.body.dateDostavki){
-            posecheniya.dateDostavki = req.body.dateDostavki;
+            zakaz.dateDostavki = req.body.dateDostavki;
         }
 
-        posecheniya.save((err, posecheniya) => {
+        zakaz.save((err, zakaz) => {
             if(err){
                 h.sendJsonResponse(res,400, err);
             }
-            h.sendJsonResponse(res,200, posecheniya);
+            h.sendJsonResponse(res,200, zakaz);
         });
 
     });
@@ -95,7 +95,7 @@ module.exports.delete = async (req, res, next) => {
         return;
     }
 
-    posecheniya.findByIdAndRemove(req.params.id, (err) => {
+    zakaz.findByIdAndRemove(req.params.id, (err) => {
         if(err){
             h.sendJsonResponse(res,400, err);
         }

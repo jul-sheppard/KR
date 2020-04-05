@@ -56,6 +56,6 @@ process.on('SIGTERM', () => {
 });
 
 require('./config');
-require('./posecheniya');
+require('./zakaz');
 require('./user');
 require('./token');

@@ -1,6 +1,6 @@
 let mongoose = require( 'mongoose' );
 
-let posecheniyaSchema = new mongoose.Schema({
+let zakazSchema = new mongoose.Schema({
     fio: {type: String, required: true},
     adress: {type: String, required: true, default: "Неизвестный Адрес"},
     dostavshik: {type: String, required: true},
@@ -9,5 +9,5 @@ let posecheniyaSchema = new mongoose.Schema({
     userId: {type: Number, required: false}
 });
 
-mongoose.model('posecheniya', posecheniyaSchema );
+mongoose.model('zakaz', zakazSchema );
 
