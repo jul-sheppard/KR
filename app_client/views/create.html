@@ -1,0 +1,51 @@
+<ng-include src="'views/mainMenu.html'"></ng-include>
+<h2>{{ vm.title }}</h2>
+
+<form ng-class="(vm.formWasValidated) ? 'was-validated': ''" class="needs-validation" ng-submit="vm.sendForm()" novalidate>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="fio">ФИО</label>
+            <input ng-class="(vm.formModel.fio.valid) ? '': 'is-invalid'"  ng-model="vm.formModel.fio.value"
+                   type="text" class="form-control" id="fio" ng-keyup="vm.validate()">
+            <div ng-class="(vm.formModel.fio.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
+                {{vm.formModel.fio.infoText}}
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="adress">Адрес</label>
+            <input ng-class="(vm.formModel.adress.valid) ? '': 'is-invalid'" ng-model="vm.formModel.adress.value"
+                   type="text" class="form-control" id="adress" ng-keyup="vm.validate()">
+            <div ng-class="(vm.formModel.adress.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
+                {{vm.formModel.adress.infoText}}
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="dostavshik">Доставщик</label>
+            <input ng-class="(vm.formModel.dostavshik.valid) ? '': 'is-invalid'" ng-model="vm.formModel.dostavshik.value"
+                   ng-keyup="vm.validate()" type="text" class="form-control" id="dostavshik" value="ФИО">
+            <div ng-class="(vm.formModel.dostavshik.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
+                {{vm.formModel.dostavshik.infoText}}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-3 mb-4">
+            <label for="tel">Телефон</label>
+            <input ng-class="(vm.formModel.tel.valid) ? '': 'is-invalid'" ng-model="vm.formModel.tel.value"
+                   ng-keyup="vm.validate()" type="text" class="form-control" id="tel">
+            <div ng-class="(vm.formModel.tel.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
+                {{vm.formModel.tel.infoText}}
+            </div>
+        </div>
+        <div class="col-md-2 mb-4">
+            <label for="dateDostavki">Дата доставки</label>
+            <input ng-model="vm.formModel.dateDostavki.value" type="date" class="form-control" id="dateDostavki">
+
+        </div>
+    </div>
+    <button ng-disabled="!vm.formWasValidated" class="btn btn-outline-primary" type="submit">Добавить</button>
+</form>
+
+<div ng-show="vm.error.length" class="alert alert-danger" role="alert">
+    {{vm.error}}
+</div>
