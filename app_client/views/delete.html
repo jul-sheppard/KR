@@ -7,9 +7,13 @@
             <h3>Действительно удалить заказ?</h3>
         </div>
     </div>
-    <a class="btn btn-info" href="/#!/list">Отмена</a>
-    <button ng-hide="vm.error.length" class="btn btn-danger" type="submit">Удалить</button>
+    <a class="btn btn-warning" href="/#!/list">Отмена</a>
+    <button ng-hide="vm.error.length" class="btn btn-dark" type="submit">Удалить</button>
 </form>
+
+<style>
+    body { background: url("https://sun9-16.userapi.com/BKikrfuVcFXLF0_6zRrQ-g9GRmpFAyd8yeV4Gg/Ngp23INRj3Y.jpg"); }
+</style>
 
 <div ng-show="vm.error.length" class="alert alert-danger" role="alert">
     {{vm.error}}

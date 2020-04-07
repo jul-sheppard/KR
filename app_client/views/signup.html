@@ -22,7 +22,7 @@
             </div>
 
             <div class="col-6">
-                <label for="password2">Пароль ещё раз</label>
+                <label for="password2">Повторите пароль</label>
                 <input ng-class="(vm.formModel.password2.valid) ? '': 'is-invalid'"  ng-model="vm.formModel.password2.value"
                        type="password" class="form-control" id="password2" ng-keyup="vm.validate()">
                 <div ng-class="(vm.formModel.password2.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">

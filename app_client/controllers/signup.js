@@ -61,12 +61,8 @@ function signupCtrl($http, $location) {
             //const data = res.data;
             $location.path('/login');
         }, err=>{
-            console.log('error add posecheniya: ', err);
+            console.log('error add zakaz: ', err);
             vm.error = 'Ошибка: ' + JSON.stringify(err);
         });
     }
-
-
-
-
 }

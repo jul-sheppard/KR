@@ -33,6 +33,11 @@ function updateCtrl($http, $location, $routeParams) {
             infoText: '',
             value: new Date()
         },
+        zakaz: {
+            valid: true,
+            infoText: '',
+            value: ''
+        },
     };
 
     vm.validate = function () {
@@ -53,12 +58,13 @@ function updateCtrl($http, $location, $routeParams) {
 
         vm.error = '';
         console.log('waiting...');
-        let p1 = $http.put('/api/posecheniya/' + id, {
+        let p1 = $http.put('/api/zakaz/' + id, {
             fio: vm.formModel.fio.value,
             adress: vm.formModel.adress.value,
             dostavshik: vm.formModel.dostavshik.value,
             tel: vm.formModel.tel.value,
             dateDostavki: vm.formModel.dateDostavki.value,
+            zakaz: vm.formModel.zakaz.value,
         }, {
             headers : {
                 token: localStorage.getItem('token')
@@ -79,7 +85,7 @@ function updateCtrl($http, $location, $routeParams) {
         console.log('waiting...');
 
 
-        let p1 = $http.get('/api/posecheniya/' + id, {
+        let p1 = $http.get('/api/zakaz/' + id, {
             headers : {
                 token: localStorage.getItem('token')
             }
@@ -92,13 +98,11 @@ function updateCtrl($http, $location, $routeParams) {
             vm.formModel.dostavshik.value = oneRow.dostavshik;
             vm.formModel.tel.value = oneRow.tel;
             vm.formModel.dateDostavki.value = new Date(oneRow.dateDostavki);
+            vm.formModel.zakaz.value = oneRow.zakaz;
             vm.validate();
         }, err=>{
             vm.error = 'Ошибка: ' + JSON.stringify(err);
         });
     }
-
     init();
-
-
 }

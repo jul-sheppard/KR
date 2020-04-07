@@ -3,7 +3,6 @@ function createCtrl($http, $location) {
     vm.error = '';
     vm.title = "Добавление";
 
-
     vm.formWasValidated = false;
 
     vm.formModel = {
@@ -32,8 +31,12 @@ function createCtrl($http, $location) {
             infoText: '',
             value: new Date()
         },
+        zakaz: {
+            valid: true,
+            infoText: '',
+            value: ''
+        },
     };
-
     vm.validate = function () {
 
         vm.formWasValidated = true;
@@ -47,18 +50,18 @@ function createCtrl($http, $location) {
             }
         }
     };
-
     vm.sendForm = function () {
 
         vm.error = '';
 
         console.log('waiting...');
-        let p1 = $http.post('/api/posecheniya', {
+        let p1 = $http.post('/api/zakaz', {
             fio: vm.formModel.fio.value,
             adress: vm.formModel.adress.value,
             dostavshik: vm.formModel.dostavshik.value,
             tel: vm.formModel.tel.value,
             dateDostavki: vm.formModel.dateDostavki.value,
+            zakaz: vm.formModel.zakaz.value,
         }, {
             headers : {
                 token: localStorage.getItem('token')
@@ -70,11 +73,6 @@ function createCtrl($http, $location) {
             $location.path('/');
         }, err=>{
             vm.error = 'Ошибка: ' + JSON.stringify(err);
-            //console.log('error add practic: ', err);
         });
     }
-
-
-
-
 }

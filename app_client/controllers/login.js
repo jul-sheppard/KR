@@ -2,7 +2,7 @@ function loginCtrl($http, $location, $scope) {
 
     let vm = this;
     vm.error = '';
-    vm.title = "Вход";
+    vm.title = "Авторизация";
 
     vm.formWasValidated = false;
 
@@ -46,13 +46,9 @@ function loginCtrl($http, $location, $scope) {
             localStorage.setItem('token', data.token);
             $location.path('/');
         }, err=>{
-            console.log('error add posecheniya: ', err);
+            console.log('error add zakaz: ', err);
             vm.error = 'Ошибка: ' + JSON.stringify(err);
 
         });
     }
-
-
-
-
 }

@@ -12,7 +12,7 @@ function deleteCtrl($http, $location, $routeParams) {
     vm.sendForm = function () {
         vm.error = '';
         console.log('waiting...');
-        let p1 = $http.delete('/api/posecheniya/' + id, {
+        let p1 = $http.delete('/api/zakaz/' + id, {
             headers : {
                 token: localStorage.getItem('token')
             }
@@ -30,7 +30,7 @@ function deleteCtrl($http, $location, $routeParams) {
         vm.error = '';
         console.log('waiting...');
 
-        let p1 = $http.get('/api/posecheniya/' + id, {
+        let p1 = $http.get('/api/zakaz/' + id, {
             headers : {
                 token: localStorage.getItem('token')
             }
@@ -44,8 +44,5 @@ function deleteCtrl($http, $location, $routeParams) {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
         });
     }
-
     init();
-
-
 }

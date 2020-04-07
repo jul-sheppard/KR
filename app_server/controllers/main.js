@@ -23,10 +23,10 @@ module.exports.index = (req, res, next) => {
     //
     // });
 
-    // создание записи в коллекции posecheniya:
+    // создание записи в коллекции zakaz:
 
     // // объект для вставки в базу данных
-    // let posecheniyaRecord = {
+    // let zakazRecord = {
     //     fio: "по ПМ.02 Осуществление интеграции программных модулей",
     //     //adress: ,
     //     dostavshik: "Фамилия Имя Отчество",
@@ -35,7 +35,7 @@ module.exports.index = (req, res, next) => {
     // };
     //
     // // вызываем метод create модели config
-    // posecheniya.create(posecheniyaRecord, (err, config) => {
+    // zakaz.create(zakazRecord, (err, config) => {
     //     // коллбэк при добавлении данных
     //     if(err){
     //         // если есть о
@@ -46,8 +46,8 @@ module.exports.index = (req, res, next) => {
     //
     // });
 
-    // изменение записи в коллекции posecheniya:
-    // posecheniya.deleteMany({adress: "Неизвестный Адрес"}, (err) => {
+    // изменение записи в коллекции zakaz:
+    // zakaz.deleteMany({adress: "Неизвестный Адрес"}, (err) => {
     //         // коллбэк при удалении данных
     //         if (err) {
     //             // если есть ошибка

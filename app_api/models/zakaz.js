@@ -6,6 +6,7 @@ let zakazSchema = new mongoose.Schema({
     dostavshik: {type: String, required: true},
     tel: {type: Number, required: true},
     dateDostavki: {type: Date, required: true, default: Date.now},
+    zakaz: {type: String, required: true},
     userId: {type: Number, required: false}
 });
 

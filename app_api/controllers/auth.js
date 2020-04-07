@@ -1,5 +1,3 @@
-
-
 let mongoose = require('mongoose');
 let user = mongoose.model('user');
 let token = mongoose.model('token');

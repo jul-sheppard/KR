@@ -1,3 +1,17 @@
+<div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <h5 class="text-white h4">Учет заказов пиццы</h5>
+            <span class="text-muted">Сайт разработан для курсовой работы</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</div>
+
 <ng-include src="'views/mainMenu.html'"></ng-include>
 <h2>{{ vm.title }}</h2>
 
@@ -38,12 +52,25 @@
             </div>
         </div>
         <div class="col-md-2 mb-4">
-            <label for="dateDostavki">Дата доставки</label>
+            <label for="dateDostavki">Дата</label>
             <input ng-model="vm.formModel.dateDostavki.value" type="date" class="form-control" id="dateDostavki">
 
         </div>
+
+        <style>
+            body { background: url("https://sun9-16.userapi.com/BKikrfuVcFXLF0_6zRrQ-g9GRmpFAyd8yeV4Gg/Ngp23INRj3Y.jpg"); }
+        </style>
+
+        <div class="col-md-3 mb-4">
+            <label for="zakaz">Заказ</label>
+            <input ng-class="(vm.formModel.zakaz.valid) ? '': 'is-invalid'" ng-model="vm.formModel.zakaz.value"
+                   ng-keyup="vm.validate()" type="text" class="form-control" id="zakaz">
+            <div ng-class="(vm.formModel.zakaz.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
+                {{vm.formModel.zakaz.infoText}}
+            </div>
+        </div>
     </div>
-    <button ng-disabled="!vm.formWasValidated" class="btn btn-outline-primary" type="submit">Добавить</button>
+    <button ng-disabled="!vm.formWasValidated" class="btn btn-primary" type="submit">Добавить</button>
 </form>
 
 <div ng-show="vm.error.length" class="alert alert-danger" role="alert">
